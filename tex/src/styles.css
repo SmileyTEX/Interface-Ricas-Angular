@@ -1,1 +1,189 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================================
+   Tex — design tokens & global styles
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  --bg: #f5f6fa;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f8f9fc;
+  --surface-3: #eef0f6;
+  --border: #e3e6ef;
+  --border-strong: #cfd4e2;
+
+  --text: #171b28;
+  --text-muted: #626b85;
+  --text-soft: #8b93a9;
+
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-soft: #eef0ff;
+  --on-primary: #ffffff;
+
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+  --success: #059669;
+  --success-soft: #d1fae5;
+
+  --amber: #f59e0b;
+  --blue: #3b82f6;
+  --green: #10b981;
+  --purple: #8b5cf6;
+  --rose: #f43f5e;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 1px 2px rgb(16 24 40 / 0.06);
+  --shadow: 0 4px 16px rgb(16 24 40 / 0.08);
+  --shadow-lg: 0 18px 40px rgb(16 24 40 / 0.14);
+
+  --header-h: 64px;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0e1117;
+  --bg-elevated: #151a23;
+  --surface: #161b25;
+  --surface-2: #1c2230;
+  --surface-3: #232a3a;
+  --border: #262d3d;
+  --border-strong: #37415a;
+
+  --text: #e8ebf2;
+  --text-muted: #9aa3ba;
+  --text-soft: #6f7994;
+
+  --primary: #7c7bf7;
+  --primary-hover: #8f8efb;
+  --primary-soft: #1e2246;
+  --on-primary: #0e1117;
+
+  --danger: #f87171;
+  --danger-soft: #3b1d1d;
+  --success: #34d399;
+  --success-soft: #123329;
+
+  --amber: #fbbf24;
+  --blue: #60a5fa;
+  --green: #34d399;
+  --purple: #a78bfa;
+  --rose: #fb7185;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow: 0 6px 20px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 20px 46px rgb(0 0 0 / 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- utilitários ---------- */
+.container {
+  width: min(1200px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- scrollbar ---------- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+/* ---------- animações ---------- */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
